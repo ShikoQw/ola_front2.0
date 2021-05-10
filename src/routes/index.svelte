@@ -58,7 +58,7 @@
 <!--	}-->
 <!--</style>-->
 <script>
-	import NavTabs from "../components/navTabs/NavTabs.svelte";
+	import NavTabs from "../components/NavTabs.svelte";
 </script>
 
 <NavTabs/>
