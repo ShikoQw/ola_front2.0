@@ -1,5 +1,6 @@
 <script>
-    import { goto } from '$app/navigation'
+    import { goto } from '$app/navigation';
+    import * as cookie from 'cookie';
 
     let email= '';
     let password= '';

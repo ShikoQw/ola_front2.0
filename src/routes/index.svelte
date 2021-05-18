@@ -58,7 +58,12 @@
 <!--	}-->
 <!--</style>-->
 <script>
-	import NavTabs from "../components/NavTabs.svelte";
+	import { goto } from '$app/navigation'
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		goto('home/')
+	});
 </script>
 
-<NavTabs/>
+

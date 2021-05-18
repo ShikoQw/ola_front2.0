@@ -1,33 +1,34 @@
 <script>
     import { goto } from '$app/navigation'
     import { createEventDispatcher } from 'svelte';
+    import { onMount } from 'svelte';
+    import * as cookie from 'cookie'
 
+    export let activeTabValue = 1;
+    // let isAuthTab: false
+    const dispatch = createEventDispatcher();
+    let isAuth;
 
     let items = [
         { label: "Home",
             value: '/home',
         },
-        { label: "My courses",
-            value: '/myCourses',
+        { label: "Courses",
+            value: '/courses',
         },
         { label: "Adaptation",
             value: '/adaptation',
         },
-        { label: "Market",
-            value: '/market',
-        },
         { label: "Profile",
             value: '/profile',
+        },
+        { label: "Help",
+            value: '/help',
         }
     ];
 
-    export let activeTabValue = 1;
-    // let isAuthTab: false
-    const dispatch = createEventDispatcher();
-
-
-
-    const handleClick = tabValue => () => (goto(tabValue));
+    //funstions
+    const handleClick = tabValue => () => (goto(tabValue) );
 
     function changeIsAuthTab(){
         dispatch('changeIsAuth', {
@@ -35,10 +36,23 @@
         });
     };
 
+    async function singOut(){
+        document.cookie = "access_token= ;"
+        localStorage.removeItem('access_token');
+        goto('/home');
+    }
+
+    onMount(async () => {
+        // console.log(document.promise)
+        // console.log(cookie.parse(document.cookie))
+        isAuth = localStorage.getItem('access_token') ? true : false;
+    });
+
+    // let isAuth = localStorage.getItem('access_token') ? localStorage.getItem('access_token') : false;
 </script>
 
 <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">.
-    <div class="container"><a class="navbar-brand" href="/home">OLA</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
+    <div class="container" style="padding-left: 2px !important;"><a class="navbar-brand" href="/home">OLA</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
         <ul>
             {#each items as item}
                 <li class={activeTabValue === item.value ? 'active' : ''}>
@@ -47,10 +61,14 @@
             {/each}
         </ul>
         <div class="collapse navbar-collapse" id="navcol-1">
-            <a class="btn btn-primary ms-auto" role="button" href="/auth/login" style="background: transparent !important; border-color: var(--bs-indigo) !important; color: var(--bs-indigo); margin: 7px" on:click={changeIsAuthTab}>Sign In</a>
-            <div>
-                <a class="btn btn-primary ms-auto" role="button" href="/auth/register" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;" on:click={changeIsAuthTab}>Sign Up</a>
-            </div>
+            {#if !isAuth}
+                <a class="btn btn-primary ms-auto" role="button" href="/auth/login" style="background: transparent !important; border-color: var(--bs-indigo) !important; color: var(--bs-indigo); margin: 7px" on:click={changeIsAuthTab}>Sign In</a>
+                <div>
+                    <a class="btn btn-primary ms-auto" role="button" href="/auth/register" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;" on:click={changeIsAuthTab}>Sign Up</a>
+                </div>
+            {:else}
+                <a class="btn btn-primary ms-auto" role="button" style="background: transparent !important; border-color: var(--bs-indigo) !important; color: var(--bs-indigo); margin: 7px" on:click={singOut}>Sign out</a>
+            {/if}
         </div>
     </div>
 </nav>

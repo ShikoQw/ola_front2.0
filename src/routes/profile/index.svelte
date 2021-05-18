@@ -5,6 +5,12 @@
                 status: 302,
                 redirect: '/auth/unauthorized'
             }
+        }else{
+            return{
+                props: {
+                    session_token: session.session_token
+                }
+            }
         }
     }
 </script>

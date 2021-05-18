@@ -14,7 +14,7 @@
         <img class="_img" src="http://www.kasparov.ru/content/materials/202012/5FDC9908CD6DB.jpg">
         <div class="card-body">
             <h4 class="card-title">{item.name}</h4>
-            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button">Button</button>
+            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;">Button</button>
         </div>
     </div>
     {/each}
