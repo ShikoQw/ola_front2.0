@@ -64,7 +64,7 @@
             {#if !isAuth}
                 <a class="btn btn-primary ms-auto" role="button" href="/auth/login" style="background: transparent !important; border-color: var(--bs-indigo) !important; color: var(--bs-indigo); margin: 7px" on:click={changeIsAuthTab}>Sign In</a>
                 <div>
-                    <a class="btn btn-primary ms-auto" role="button" href="/auth/register" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;" on:click={changeIsAuthTab}>Sign Up</a>
+                    <a class="btn btn-primary ms-auto text-white" role="button" href="/auth/register" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;" on:click={changeIsAuthTab}>Sign Up</a>
                 </div>
             {:else}
                 <a class="btn btn-primary ms-auto" role="button" style="background: transparent !important; border-color: var(--bs-indigo) !important; color: var(--bs-indigo); margin: 7px" on:click={singOut}>Sign out</a>

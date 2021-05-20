@@ -1,24 +1,23 @@
 <script>
-    // export let items;
-    let items=[
-        {name: 'qwerty'},
-        {name: 'asdfgn'},
-        {name: 'zxcvbm'},
-        {name: 'tyuioo'},
-    ]
+    import {goto} from '$app/navigation'
+    export let course;
+
 </script>
 
-<div class="container">
-    {#each items as item}
-    <div class="card">
-        <img class="_img" src="http://www.kasparov.ru/content/materials/202012/5FDC9908CD6DB.jpg">
-        <div class="card-body">
-            <h4 class="card-title">{item.name}</h4>
-            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;">Button</button>
-        </div>
+<div class="card">
+    {#if course.image }
+        <img class="_img" src={course.image + "?access_token=" + localStorage.getItem('access_token')}>
+    {/if}
+    <div class="card-body">
+        <h4 class="card-title">{course.name}</h4>
+        {#if course.description}
+            <p class="card-text">{course.description}</p>
+        {/if}
+        <button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;"
+                on:click={goto('/course/' + course.id)}>More detail</button>
     </div>
-    {/each}
 </div>
+
 
 <style>
     @media (max-width:767px) {
@@ -124,6 +123,11 @@
         width: 100%;
         max-height: 5rem;
         object-fit: cover;
+    }
+
+    .logoImg{
+        max-height: 2rem;
+        max-width: 2rem;
     }
 
 </style>

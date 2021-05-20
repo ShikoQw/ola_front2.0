@@ -1,5 +1,5 @@
 <script>
-    import { Tabs, Tab, MaterialApp } from 'svelte-materialify';
+    import { Tabs, Tab } from 'svelte-materialify';
     import { goto } from '$app/navigation'
     import { onMount } from 'svelte';
 
@@ -18,8 +18,7 @@
     <div class="mx-auto position-relative container">
         <form>
             <div class="row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" placeholder="Search"></div>
-                <div class="col-12 col-md-2"><button class="btn btn-primary btn-lg" type="submit" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;">Enter</button></div>
+                <div><input class="form-control form-control-lg" placeholder="Search"></div>
             </div>
             <div class="col-12 col-md-9">
                 <Tabs class="indigo-text">
