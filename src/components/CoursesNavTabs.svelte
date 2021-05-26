@@ -14,35 +14,22 @@
     });
 </script>
 
-<header class="cd-header">
-    <div class="mx-auto position-relative container">
-        <form>
-            <div class="row">
-                <div><input class="form-control form-control-lg" placeholder="Search"></div>
-            </div>
-            <div class="col-12 col-md-9">
-                <Tabs class="indigo-text">
-                    <div slot="tabs">
-                        <Tab><a class="btn" style="text-decoration: none;" href="/courses/allCourses/">All Courses</a></Tab>
-                        <Tab><a class="btn" style="text-decoration: none;" href="/courses/market/">Market</a></Tab>
-                        <Tab><a class="btn" style="text-decoration: none;" href="/courses/freeCourses/">Free courses</a></Tab>
-                        {#if isAuth}
-                            <Tab><a class="btn" style="text-decoration: none;" href="/courses/myCourses/">My courses</a></Tab>
-                            <Tab><a class="btn" style="text-decoration: none;" href="/courses/marked/">Marked</a></Tab>
-                        {/if}
-                    </div>
-                </Tabs>
-            </div>
-        </form>
-    </div>
-</header>
 
-<!--<div class="card">-->
-<!--    <img class="_img" src="http://www.kasparov.ru/content/materials/202012/5FDC9908CD6DB.jpg"/>-->
-<!--    <div class="card-img-overlay">-->
-<!--        w;jkdh;asjda-->
-<!--    </div>-->
-<!--</div>-->
+<form>
+    <div><input class="form-control form-control-lg" placeholder="Search"></div>
+    <Tabs class="indigo-text">
+        <div slot="tabs">
+            <Tab><a class="btn" style="text-decoration: none;" href="/courses/allCourses/">All Courses</a></Tab>
+            <Tab><a class="btn" style="text-decoration: none;" href="/courses/market/">Market</a></Tab>
+            <Tab><a class="btn" style="text-decoration: none;" href="/courses/freeCourses/">Free courses</a></Tab>
+            {#if isAuth}
+                <Tab><a class="btn" style="text-decoration: none;" href="/courses/myCourses/">My courses</a></Tab>
+                <Tab><a class="btn" style="text-decoration: none;" href="/courses/marked/">Marked</a></Tab>
+            {/if}
+        </div>
+    </Tabs>
+</form>
+
 
 <style>
     ._img {

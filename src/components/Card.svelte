@@ -1,11 +1,11 @@
 <script>
     import {goto} from '$app/navigation'
-    export let course;
-
+    export let course = undefined;
+    export let path = undefined;
 </script>
 
 <div class="card">
-    {#if course.image }
+    {#if course.image}
         <img class="_img" src={course.image + "?access_token=" + localStorage.getItem('access_token')}>
     {/if}
     <div class="card-body">
@@ -13,8 +13,10 @@
         {#if course.description}
             <p class="card-text">{course.description}</p>
         {/if}
-        <button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;"
-                on:click={goto('/course/' + course.id)}>More detail</button>
+        {#if course.description}
+            <button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;"
+                    on:click={goto('/course/' + course.id)}>More detail</button>
+        {/if}
     </div>
 </div>
 
@@ -102,7 +104,7 @@
     }
 
     .card {
-        width: 300px;
+        width: 250px;
         height: auto;
         left: 27px;
         top: 150px;

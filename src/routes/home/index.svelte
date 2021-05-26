@@ -1,3 +1,15 @@
+<script>
+    import { onMount } from 'svelte';
+
+    onMount(async () => {
+        if(localStorage.getItem('isReload') !== 'false'){
+           localStorage.setItem('isReload', false);
+           window.location.reload();
+        }
+    })
+
+</script>
+
 <header class="text-center text-white masthead" style="background: url('../../../static/assets/img/library.jpg')no-repeat center center;background-size: cover;">
     <div class="overlay"></div>
     <div class="container">

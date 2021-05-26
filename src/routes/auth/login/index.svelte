@@ -29,7 +29,10 @@
         if(response){
             document.cookie = "access_token=" + token.access_token + "; Max-age=" + token.expires_in + "; path=/";
             localStorage.setItem('access_token', token.access_token);
+            localStorage.setItem('isReload', true);
             redirectToProfile();
+        }else{
+            alert("неверный логин или пароль")
         }
     }
     function redirectToProfile(){
@@ -41,7 +44,7 @@
     <section class="login-clean">
         <form on:submit|preventDefault={register}>
             <!--            <div class="illustration"><a href="#">OLA</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>-->
-            <div class="illustration" style="color: var(--bs-indigo) !important;"><a style="text-decoration: none;" href="/">OLA App</a></div>
+            <div class="illustration" style="color: var(--bs-indigo) !important;"><a class = "icon-book-open" style="text-decoration: none;" href="/">{"   OLA"}</a></div>
             <h2></h2>
             <div class="mb-3"><input bind:value={email} class="form-control" type="text" name="email" placeholder="Email"></div>
             <div class="mb-3"><input bind:value={password} class="form-control" type="password" name="password" placeholder="Password"></div>

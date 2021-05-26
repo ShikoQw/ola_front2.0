@@ -39,16 +39,14 @@
     async function singOut(){
         document.cookie = "access_token= ;"
         localStorage.removeItem('access_token');
+        localStorage.setItem('isReload', true);
         goto('/home');
     }
 
     onMount(async () => {
-        // console.log(document.promise)
-        // console.log(cookie.parse(document.cookie))
         isAuth = localStorage.getItem('access_token') ? true : false;
     });
 
-    // let isAuth = localStorage.getItem('access_token') ? localStorage.getItem('access_token') : false;
 </script>
 
 <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">.

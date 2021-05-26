@@ -1,5 +1,4 @@
 <script>
-    import Filters from "../../../components/Filters.svelte";
     import {onMount} from 'svelte';
     import Courses from "../../../components/Courses.svelte";
 
@@ -13,23 +12,15 @@
             },
             redirect: 'follow'
         };
-        const items  = await fetch("http://91.135.203.14:8080/ola/rest/v2/services/ola_CourseService/getPublicCourses", requestOptions)
+        items = await fetch("http://91.135.203.14:8080/ola/rest/v2/services/ola_CourseService/getPublicCourses", requestOptions)
                 .then(response => response.json());
+
     });
 </script>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="container filterCard">
-                <Filters/>
-            </div>
-        </div>
-        <div class="col-md-10">
-            <div class="myGrid">
-                <Courses tabKey="myCourses" items={items}/>
-            </div>
-        </div>
+    <div class="myGrid">
+        <Courses tabKey="myCourses" items={items}/>
     </div>
 </div>
 

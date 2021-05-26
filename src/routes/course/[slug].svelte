@@ -1,10 +1,13 @@
 <script context="module">
     export async function load(ctx){
         let slug = ctx.page.params.slug;
-        return { props: { slug } }
+        let path = ctx.page.path;
+        return { props: { slug, path } }
     }
     export let lecture;
+    export let corLecture;
 </script>
+
 <script>
     import {onMount} from 'svelte';
     import {Tabs, Tab, TabContent} from 'svelte-materialify';
@@ -12,12 +15,15 @@
     import Card from "../../components/Card.svelte";
 
     export let slug;
-    export let course;
+    let path;
+    export let course = [];
+    export let expCourse;
     let mySectionTest = [];
     let mySectionLecture = [];
 
     function redurectToLecture(o) {
         lecture = o;
+        corLecture = course;
         goto('/course/lecture')
     }
 
@@ -38,22 +44,25 @@
         };
 
         course = await fetch("http://yerasis.kz:8080/ola/rest/v2/services/ola_CourseService/getCourse", requestOptions)
-                .then(response => response.json())
-        console.log(course)
-        mySectionTest = course.sectionList.filter(t => t.test);
-        mySectionLecture = course.sectionList.filter(t => !t.test);
+                .then(response => response.json());
+        expCourse = {
+            image: course.image,
+            name: course.name,
+            description: course.description
+        }
+        mySectionTest = course.sectionList.filter(t => t.name.includes('Тест'));
+        mySectionLecture = course.sectionList.filter(t => !t.name.includes('Тест'));
+
     });
 </script>
 
 
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-lg-2 offset-md-1">
-                <div class="text">
-                    <Card course={course}/>
-                </div>
+            <div class="col-md-10 col-lg-3 offset-md-1">
+                <Card course={course}/>
             </div>
-            <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-0">
+            <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0">
                 <header class="cd-header">
                     <div class="mx-auto position-relative container">
                         <div class="container">
@@ -68,7 +77,7 @@
                                             <thead>
                                                 <tr>
                                                     <th><center>#</center></th>
-                                                    <th><center>Icon</center></th>
+                                                    <th><center></center></th>
                                                     <th>Name</th>
                                                     <th><center>Action</center></th>
                                                 </tr>
@@ -77,7 +86,7 @@
                                             {#each mySectionLecture as section, i}
                                                     <tr>
                                                         <td><center>{i+1}</center></td>
-                                                        <td><center>icon</center></td>
+                                                        <td><center><i class="icon-book-open"></i></center></td>
                                                         <td>{section._instanceName}</td>
                                                         <td><center><button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;" on:click={redurectToLecture(section)}>Open</button></center></td>
                                                     </tr>
@@ -92,7 +101,7 @@
                                             <thead>
                                             <tr>
                                                 <th><center>#</center></th>
-                                                <th><center>Icon</center></th>
+                                                <th><center></center></th>
                                                 <th>Name</th>
                                                 <th><center>Action</center></th>
                                             </tr>
@@ -101,7 +110,7 @@
                                             {#each mySectionTest as section, i}
                                                 <tr>
                                                     <td><center>{i+1}</center></td>
-                                                    <td><center>icon</center></td>
+                                                    <td><center><i class="icon-pencil"></i></center></td>
                                                     <td>{section._instanceName}</td>
                                                     <td><center><button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important; ">More detail</button></center></td>
                                                 </tr>

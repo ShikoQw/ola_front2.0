@@ -1,21 +1,16 @@
 <script>
-    import Filters from "../../../components/Filters.svelte";
     import Courses from "../../../components/Courses.svelte";
 
 </script>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="container filterCard">
-                <Filters/>
-            </div>
-        </div>
-        <div class="col-md-10">
-            <div class="myGrid">
-                <Courses tabKey="allCourses"/>
-            </div>
-        </div>
+    <div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8"></div>
+<!--        <div class="myGrid">-->
+            <Courses tabKey="allCourses"/>
+<!--        </div>-->
+        <div class="col-md-2"></div>
     </div>
 </div>
 
