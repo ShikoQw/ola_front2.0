@@ -3,16 +3,9 @@
 
 </script>
 
-<div class="container">
-    <div>
-        <div class="col-md-2"></div>
-        <div class="col-md-8"></div>
-<!--        <div class="myGrid">-->
-            <Courses tabKey="allCourses"/>
-<!--        </div>-->
-        <div class="col-md-2"></div>
-    </div>
-</div>
+
+<Courses tabKey="allCourses"/>
+
 
 <style>
     .filterCard {
