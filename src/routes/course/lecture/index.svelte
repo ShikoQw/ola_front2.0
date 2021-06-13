@@ -1,6 +1,6 @@
 <script>
     import { lecture } from '../[slug].svelte'
-    import { corLecture } from '../[slug].svelte'
+    import {store} from '../../../store.js'
     import Card from "../../../components/Card.svelte";
 </script>
 
@@ -12,7 +12,7 @@
         <br>
         <div class="row">
             <div class="col-md-10 col-lg-3 offset-md-1">
-                <Card course={corLecture}/>
+                <Card course={$store.cardLecture}/>
             </div>
             <div class="col-md-10 col-lg-7 offset-md-1 offset-lg-0">
                 <div class="text">

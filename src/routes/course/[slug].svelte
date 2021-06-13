@@ -88,8 +88,8 @@
                                         <tr>
                                             <th><center>#</center></th>
                                             <th><center></center></th>
-                                            <th>Name</th>
-                                            <th><center>Action</center></th>
+                                            <th>{localize("Name")}</th>
+                                            <th><center></center></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -112,8 +112,9 @@
                                         <tr>
                                             <th><center>#</center></th>
                                             <th><center></center></th>
-                                            <th>Name</th>
-                                            <th><center>Action</center></th>
+                                            <th>{localize("Name")}</th>
+                                            <th>{localize("Mark")}</th>
+                                            <th><center></center></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -122,6 +123,7 @@
                                                 <td><center>{i+1}</center></td>
                                                 <td><center><i class="icon-pencil"></i></center></td>
                                                 <td>{section._instanceName}</td>
+                                                <td>{section.mark ? section.mark + '%' : ''}</td>
                                                 <td><center><button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important; " on:click={redirectToTest(section)}>Open</button></center></td>
                                             </tr>
                                         {/each}

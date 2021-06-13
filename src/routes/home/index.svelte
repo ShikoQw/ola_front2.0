@@ -9,7 +9,6 @@
            window.location.reload();
         }
     })
-
 </script>
 
 <header class="text-center text-white masthead" style="background: url('../../../static/assets/img/library.jpg')no-repeat center center;background-size: cover;">

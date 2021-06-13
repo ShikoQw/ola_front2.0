@@ -1,28 +1,10 @@
-<!--<script context="module">-->
-<!--    export function load({session}) {-->
-<!--        if(!session.session_token){-->
-<!--            window.location.reload();-->
-<!--            return {-->
-<!--                status: 302,-->
-<!--                redirect: '/auth/login'-->
-<!--            }-->
-<!--        }else{-->
-<!--            return{-->
-<!--                props: {-->
-<!--                    session_token: session.session_token-->
-<!--                }-->
-<!--            }-->
-<!--        }-->
-<!--    }-->
-<!--</script>)-->
-
 <script>
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation'
     import Cookies from 'js-cookie';
 
 
-    let user;
+    export let user = {};
     let isAuth;
 
     onMount(async () => {
@@ -37,7 +19,7 @@
             }
 
             var myHeaders = new Headers();
-            myHeaders.append("Authorization", "Bearer " + localStorage.getItem('access_token'));
+            myHeaders.append("Authorization", "Bearer " + Cookies.get('access_token'));
 
             var requestOptions = {
                 method: 'GET',
@@ -47,6 +29,7 @@
 
             const res = await fetch("http://yerasis.kz:8080/ola/rest/v2/userInfo", requestOptions)
                     .then(response => response.json());
+            if(res) user = res;
         }
         })
 
@@ -58,8 +41,8 @@
         <div class="container">
             <div class="col-md-4 mb-3">
                 <img class="rounded-circle profile-pic" src="https://www.worldfuturecouncil.org/wp-content/uploads/2020/06/blank-profile-picture-973460_1280-1.png">
-<!--                <h3 class="profile-name">{user.name}</h3>-->
-                <h3 class="profile-name">Халмов Никита</h3>
+                <h3 class="profile-name">{user.name}</h3>
+<!--                <h3 class="profile-name">Халмов Никита</h3>-->
             </div>
             <div class="container">
                 <div class="card">
@@ -71,8 +54,7 @@
                                 <h6 class="mb-0">Last name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Хамлов
-<!--                                {user.lastName ? user.lastName : ''}-->
+                                {user.lastName ? user.lastName : ''}
                             </div>
                         </div>
                         <hr>
@@ -81,8 +63,7 @@
                                 <h6 class="mb-0">First name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Никита
-<!--                                {user.firstName ? user.firstName : ''}-->
+                                {user.firstName ? user.firstName : ''}
                             </div>
                         </div>
                         <hr>
@@ -91,8 +72,7 @@
                                 <h6 class="mb-0">Middle name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Андреевич
-<!--                                {user.middleName ? user.middleName : ''}-->
+                                {user.middleName ? user.middleName : ''}
                             </div>
                         </div>
                         <hr>
@@ -101,8 +81,7 @@
                                 <h6 class="mb-0">Login</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                nikita
-<!--                                {user.login ? user.login : ''}-->
+                                {user.login ? user.login : ''}
                             </div>
                         </div>
                         <hr>
@@ -111,14 +90,10 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                qw_18@mail.ru
-<!--                                {user.email ? user.email : ''}-->
+                                {user.email ? user.email : ''}
                             </div>
                         </div>
                         <hr>
-                        <div class="d-flex flex-column align-items-center text-center">
-                            <button class="btn btn-primary text-white" type="button"  style="background: var(--bs-indigo); border-color: var(--bs-indigo);">Edit</button>
-                        </div>
                     </div>
                 </div>
             </div>

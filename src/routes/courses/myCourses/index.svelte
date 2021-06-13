@@ -20,11 +20,13 @@
     });
 </script>
 
-<div class="container">
-    <div class="myGrid">
-        <Courses tabKey="myCourses" items={items}/>
-    </div>
-</div>
+<!--<div class="container">-->
+<!--    <div class="myGrid">-->
+<!--        <Courses tabKey="myCourses" items={items}/>-->
+<!--    </div>-->
+<!--</div>-->
+
+<Courses tabKey="myCourses" items={items}/>
 
 <style>
     .filterCard {

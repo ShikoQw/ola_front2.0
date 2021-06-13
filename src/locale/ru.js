@@ -43,5 +43,8 @@ export const ru_locale = new Map ([
     ["Open", "Открыть"],
     ["Finish", "Завершить"],
 
+    ["Name", "Наименование"],
+    ["Mark", "Оценка"],
+
 
 ])

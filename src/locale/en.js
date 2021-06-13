@@ -43,4 +43,6 @@ export const en_locale = new Map ([
     ["Open", "Open"],
     ["Finish", "Finish"],
 
+    ["Name", "Name"],
+    ["Mark", "Mark"],
 ])

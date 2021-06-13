@@ -2,6 +2,7 @@
     import {goto} from '$app/navigation'
     import Cookies from 'js-cookie';
     import localize from "../cas/localize";
+    import {store} from "../store";
 
     export let course = undefined;
     export let path = undefined;
@@ -9,13 +10,16 @@
 
 <div class="card">
     {#if course.image}
-<!--        <img class="_img" src={course.image + localStorage.getItem('access_token')}>-->
-        <img class="_img" src={course.image + Cookies.get('access_token')}>
+        {#if $store.coursesType === 'allCourses'}
+            <img class="_img" src={course.image}>
+        {:else}
+            <img class="_img" src={course.image + Cookies.get('access_token')}>
+        {/if}
     {/if}
     <div class="card-body">
         <h4 class="card-title">{course.name}</h4>
         {#if course.description}
-            <p class="card-text">{course.description}</p>
+            <p class="card-text truncate">{course.description}</p>
         {/if}
         {#if course.description}
             <button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;"
@@ -108,7 +112,7 @@
     }
 
     .card {
-        width: 250px;
+        width: 235px;
         height: auto;
         left: 27px;
         top: 150px;
@@ -131,9 +135,12 @@
         object-fit: cover;
     }
 
-    .logoImg{
-        max-height: 2rem;
-        max-width: 2rem;
+
+    .truncate {
+        display: -webkit-box;
+        -webkit-line-clamp:5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
 </style>
