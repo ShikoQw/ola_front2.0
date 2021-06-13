@@ -1,12 +1,16 @@
 <script>
     import {goto} from '$app/navigation'
+    import Cookies from 'js-cookie';
+    import localize from "../cas/localize";
+
     export let course = undefined;
     export let path = undefined;
 </script>
 
 <div class="card">
     {#if course.image}
-        <img class="_img" src={course.image + localStorage.getItem('access_token')}>
+<!--        <img class="_img" src={course.image + localStorage.getItem('access_token')}>-->
+        <img class="_img" src={course.image + Cookies.get('access_token')}>
     {/if}
     <div class="card-body">
         <h4 class="card-title">{course.name}</h4>
@@ -15,7 +19,7 @@
         {/if}
         {#if course.description}
             <button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;"
-                    on:click={goto('/course/' + course.id)}>More detail</button>
+                    on:click={goto('/course/' + course.id)}>{localize("More detail")}</button>
         {/if}
     </div>
 </div>

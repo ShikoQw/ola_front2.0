@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import localize from "../../cas/localize";
+    import { goto } from '$app/navigation'
 
     onMount(async () => {
         if(localStorage.getItem('isReload') !== 'false'){
@@ -21,8 +22,8 @@
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
                 <form>
                     <div class="row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="email" placeholder="Enter your email..."></div>
-                        <div class="col-12 col-md-3"><button class="btn btn-primary btn-lg" type="submit" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;">Sign up!</button></div>
+                        <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="email" placeholder={localize("Enter your email...")}></div>
+                        <div class="col-12 col-md-3"><button class="btn btn-primary btn-lg" type="submit" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;">{localize("Sign Up")}</button></div>
                     </div>
                 </form>
             </div>
@@ -35,22 +36,22 @@
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                     <div class="d-flex features-icons-icon" style="color: var(--bs-blue);"><i class="icon-social-soundcloud m-auto text-primary" data-bss-hover-animate="pulse" style="/*border-color: var(--bs-blue);*//*border-right-color: var(--bs-purple);*/border-bottom-color: var(--bs-indigo);color: #BA55D3 !important;"></i></div>
-                    <h3>Fully on cloud</h3>
-                    <p class="lead mb-0">The platform works comfortably on the cloud!</p>
+                    <h3>{localize("Fully on cloud")}</h3>
+                    <p class="lead mb-0">{localize("The platform works comfortably on the cloud!")}</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                     <div class="d-flex features-icons-icon"><i class="icon-book-open m-auto text-primary" data-bss-hover-animate="pulse" style="color: #BA55D3 !important;"></i></div>
-                    <h3>Free and private courses</h3>
-                    <p class="lead mb-0">You can study both public and private courses!</p>
+                    <h3>{localize("Free and private courses")}</h3>
+                    <p class="lead mb-0">{localize("You can study both public and private courses!")}</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                     <div class="d-flex features-icons-icon"><i class="icon-check m-auto text-primary" data-bss-hover-animate="pulse" style="color: #BA55D3 !important;border-style: none;border-color: var(--bs-indigo);"></i></div>
-                    <h3>Easy to Use</h3>
-                    <p class="lead mb-0">Ready to use and learning!</p>
+                    <h3>{localize("Easy to Use")}</h3>
+                    <p class="lead mb-0">{localize("Ready to use and learning!")}</p>
                 </div>
             </div>
         </div>
@@ -61,21 +62,21 @@
     <div class="row g-0">
         <div class="col-lg-6 text-white order-lg-2 showcase-img" style="background-image: url(&quot;assets/img/cloud.jpg&quot;);"><span></span></div>
         <div class="col-lg-6 my-auto order-lg-1 showcase-text">
-            <h2>Fully on cloud</h2>
+            <h2>{localize("Fully on cloud")}</h2>
             <p class="lead mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum sem nec sem imperdiet rhoncus. Integer at aliquam erat, id tincidunt nulla.&nbsp;<br></p>
         </div>
     </div>
     <div class="row g-0">
         <div class="col-lg-6 text-white showcase-img" style="background-image: url(&quot;assets/img/courses.jpg&quot;);"><span></span></div>
         <div class="col-lg-6 my-auto order-lg-1 showcase-text">
-            <h2>Free and private courses</h2>
+            <h2>{localize("Free and private courses")}</h2>
             <p class="lead mb-0"><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum sem nec sem imperdiet rhoncus. Integer at aliquam erat, id tincidunt nulla.<br><br></p>
         </div>
     </div>
     <div class="row g-0">
         <div class="col-lg-6 text-white order-lg-2 showcase-img" style="background-image: url(&quot;assets/img/macbook.jpg&quot;);"><span></span></div>
         <div class="col-lg-6 my-auto order-lg-1 showcase-text">
-            <h2>Easy to Use&nbsp;</h2>
+            <h2>{localize("Easy to Use")}&nbsp;</h2>
             <p class="lead mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis bibendum sem nec sem imperdiet rhoncus. Integer at aliquam erat, id tincidunt nulla.&nbsp;<br></p>
         </div>
     </div>
@@ -83,7 +84,7 @@
 </section>
 <section class="text-center bg-light testimonials">
     <div class="container">
-        <h2 class="mb-5">What people are saying...</h2>
+        <h2 class="mb-5">{localize("What people are saying...")}</h2>
         <div class="row">
             <div class="col-lg-4">
                 <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3" src="assets/img/testimonials-1.jpg">
@@ -111,13 +112,13 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-9 mx-auto position-relative">
-                <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+                <h2 class="mb-4">{localize("Ready to get started? Sign up now!")}</h2>
             </div>
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
                 <form>
                     <div class="row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="email" placeholder="Enter your email..."></div>
-                        <div class="col-12 col-md-3"><button class="btn btn-primary btn-lg" type="submit" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;">Sign up!</button></div>
+                        <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="email" placeholder={localize("Enter your email...")}></div>
+                        <div class="col-12 col-md-3"><button class="btn btn-primary btn-lg" type="submit" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;">{localize("Sign Up")}</button></div>
                     </div>
                 </form>
             </div>
@@ -129,13 +130,11 @@
         <div class="row">
             <div class="col-lg-6 text-center text-lg-start my-auto h-100">
                 <ul class="list-inline mb-2">
-                    <li class="list-inline-item"><a href="#">About</a></li>
+                    <li class="list-inline-item"><a href="#">{localize("About")}</a></li>
                     <li class="list-inline-item"><span>⋅</span></li>
-                    <li class="list-inline-item"><a href="#">Contact</a></li>
+                    <li class="list-inline-item"><a href="#">{localize("Contact")}</a></li>
                     <li class="list-inline-item"><span>⋅</span></li>
-                    <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
-                    <li class="list-inline-item"><span>⋅</span></li>
-                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    <li class="list-inline-item"><a href="#">{localize("Privacy Policy")}</a></li>
                 </ul>
                 <p class="text-muted small mb-4 mb-lg-0">© OLA 2021. All Rights Reserved.</p>
             </div>

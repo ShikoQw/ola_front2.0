@@ -1,6 +1,9 @@
 <script>
     import { goto } from '$app/navigation';
     import * as cookie from 'cookie';
+    import Cookies from 'js-cookie';
+    import localize from "../../../cas/localize";
+
 
     let email= '';
     let password= '';
@@ -27,8 +30,9 @@
             .then(result => token= result);
 
         if(response){
-            document.cookie = "access_token=" + token.access_token + "; Max-age=" + token.expires_in + "; path=/";
-            localStorage.setItem('access_token', token.access_token);
+            // document.cookie = "access_token=" + token.access_token + "; Max-age=" + token.expires_in + "; path=/";
+            // localStorage.setItem('access_token', token.access_token);
+            Cookies.set('access_token', token.access_token);
             localStorage.setItem('isReload', true);
             redirectToProfile();
         }else{
@@ -47,11 +51,11 @@
             <div class="illustration" style="color: var(--bs-indigo) !important;"><a class = "icon-book-open" style="text-decoration: none;" href="/">{"   OLA"}</a></div>
             <h2></h2>
             <div class="mb-3"><input bind:value={email} class="form-control" type="text" name="email" placeholder="Email"></div>
-            <div class="mb-3"><input bind:value={password} class="form-control" type="password" name="password" placeholder="Password"></div>
+            <div class="mb-3"><input bind:value={password} class="form-control" type="password" name="password" placeholder={localize("Password")}></div>
             <div class="mb-3">
-                <button class="btn btn-primary d-block w-100" style="background: var(--bs-indigo); border-color: var(--bs-indigo) !important;" type="submit">Log In</button>
+                <button class="btn btn-primary d-block w-100" style="background: var(--bs-indigo); border-color: var(--bs-indigo) !important;" type="submit">{localize("Sign In")}</button>
             </div>
-            <a class="forgot" href="#">Forgot your email or password?</a>
+            <a class="forgot" href="#">{localize("Forgot your email or password?")}</a>
         </form>
     </section>
 </div>

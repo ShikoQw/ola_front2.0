@@ -1,12 +1,14 @@
 <script>
     import Card from "../../../components/Card.svelte";
     import {store} from '../../../store.js'
+    import localize from "../../../cas/localize";
+    import Cookies from 'js-cookie';
 
 
     async function completeTest(test) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Authorization", "Bearer " + localStorage.getItem('access_token'));
+        myHeaders.append("Authorization", "Bearer " + Cookies.get('access_token'));
 
         var raw = JSON.stringify({
             "courseSectionId": $store.test.id,
@@ -62,7 +64,7 @@
                     {/each}
                 </div>
                 <div class="d-flex flex-column align-items-center text-center">
-                    <button class="btn btn-primary text-white" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: var(--bs-indigo); border-color: var(--bs-indigo);" on:click={completeTest($store.test)}>Finish</button>
+                    <button class="btn btn-primary text-white" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: var(--bs-indigo); border-color: var(--bs-indigo);" on:click={completeTest($store.test)}>{localize("Finish")}</button>
                 </div>
             </div>
         </div>

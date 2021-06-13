@@ -1,7 +1,6 @@
 <script>
     import { lecture } from '../[slug].svelte'
     import { corLecture } from '../[slug].svelte'
-    import {onMount} from 'svelte';
     import Card from "../../../components/Card.svelte";
 </script>
 

@@ -2,7 +2,8 @@
     import { Tabs, Tab } from 'svelte-materialify';
     import { goto } from '$app/navigation'
     import { onMount } from 'svelte';
-
+    import localize from "../cas/localize";
+    import Cookies from 'js-cookie';
     let isAuth;
 
     function redirectTo(path){
@@ -10,21 +11,20 @@
     }
 
     onMount(async () => {
-        isAuth = localStorage.getItem('access_token') ? true : false;
+        isAuth = Cookies.get('access_token') !== '' ? true : false;
     });
 </script>
 
 
 <form>
-    <div><input class="form-control form-control-lg" placeholder="Search"></div>
+    <div><input class="form-control form-control-lg" placeholder={localize("Search")}></div>
     <Tabs class="indigo-text">
         <div slot="tabs">
-            <Tab><a class="btn" style="text-decoration: none;" href="/courses/allCourses/">All Courses</a></Tab>
-            <Tab><a class="btn" style="text-decoration: none;" href="/courses/market/">Market</a></Tab>
-            <Tab><a class="btn" style="text-decoration: none;" href="/courses/freeCourses/">Free courses</a></Tab>
+            <Tab><a class="btn" style="text-decoration: none;" href="/courses/allCourses/">{localize("All Courses")}</a></Tab>
+            <Tab><a class="btn" style="text-decoration: none;" href="/courses/market/">{localize("Market")}</a></Tab>
+            <Tab><a class="btn" style="text-decoration: none;" href="/courses/freeCourses/">{localize("Free courses")}</a></Tab>
             {#if isAuth}
-                <Tab><a class="btn" style="text-decoration: none;" href="/courses/myCourses/">My courses</a></Tab>
-                <Tab><a class="btn" style="text-decoration: none;" href="/courses/marked/">Marked</a></Tab>
+                <Tab><a class="btn" style="text-decoration: none;" href="/courses/myCourses/">{localize("My courses")}</a></Tab>
             {/if}
         </div>
     </Tabs>

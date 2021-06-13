@@ -14,6 +14,9 @@
     import {goto} from '$app/navigation'
     import Card from "../../components/Card.svelte";
     import {store} from '../../store.js'
+    import Cookies from 'js-cookie';
+    import localize from "../../cas/localize";
+
 
     export let slug;
     let path;
@@ -36,7 +39,7 @@
 
     onMount(async () => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer " + localStorage.getItem('access_token'));
+        myHeaders.append("Authorization", "Bearer " + Cookies.get('access_token'));
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
@@ -75,8 +78,8 @@
                     <div class="container">
                         <Tabs class="indigo-text">
                             <div slot="tabs">
-                                <Tab><a class="btn" style="text-decoration: none;">Lectures</a></Tab>
-                                <Tab><a class="btn" style="text-decoration: none;">Tests</a></Tab>
+                                <Tab><a class="btn" style="text-decoration: none;">{localize("Lectures")}</a></Tab>
+                                <Tab><a class="btn" style="text-decoration: none;">{localize("Tests")}</a></Tab>
                             </div>
                             <TabContent>
                                 <div class="table-responsive">
@@ -95,7 +98,7 @@
                                                 <td><center>{i+1}</center></td>
                                                 <td><center><i class="icon-book-open"></i></center></td>
                                                 <td>{section._instanceName}</td>
-                                                <td><center><button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;" on:click={redirectToLecture(section)}>Open</button></center></td>
+                                                <td><center><button class="btn btn-primary text-white" type="button" style="background: var(--bs-indigo);border-color: var(--bs-indigo) !important;" on:click={redirectToLecture(section)}>{localize("Open")}</button></center></td>
                                             </tr>
                                         {/each}
                                         </tbody>

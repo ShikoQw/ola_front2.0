@@ -19,13 +19,15 @@
 <script>
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation'
+    import Cookies from 'js-cookie';
 
 
     let user;
     let isAuth;
 
     onMount(async () => {
-        isAuth = localStorage.getItem('access_token') ? true : false;
+        // isAuth = localStorage.getItem('access_token') ? true : false;
+        isAuth = Cookies.get('access_token') !== '' ? true : false;
         if (!isAuth) {
             goto('/auth/login');
         } else {

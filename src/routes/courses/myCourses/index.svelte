@@ -1,6 +1,8 @@
 <script>
     import {onMount} from 'svelte';
     import Courses from "../../../components/Courses.svelte";
+    import Cookies from 'js-cookie';
+
 
     let items;
 
@@ -8,7 +10,7 @@
         var requestOptions = {
             method: 'GET',
             headers: {
-                Authorization: "Bearer " + localStorage.getItem('access_token')
+                Authorization: "Bearer " + Cookies.get('access_token')
             },
             redirect: 'follow'
         };

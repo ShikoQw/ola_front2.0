@@ -60,13 +60,11 @@
 <script>
 	import { goto } from '$app/navigation'
 	import { onMount } from 'svelte';
-
+    import Cookies from 'js-cookie';
 
     onMount(async () => {
-        document.cookie = "locale=en"
-        document.cookie = "access_token= "
+        Cookies.set('access_token', '');
+        Cookies.set('locale', 'ru');
         goto('home/')
 	});
 </script>
-
-
