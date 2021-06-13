@@ -1,29 +1,3 @@
-<!--<script>-->
-<!--    import { paginate, LightPaginationNav } from 'svelte-paginate'-->
-
-<!--    let items = ['qwerty','qwerty','qwerty','qwerty','qwerty','qwerty',]-->
-<!--    let currentPage = 1-->
-<!--    let pageSize = 4-->
-<!--    let paginatedItems = paginate({ items, pageSize, currentPage })-->
-<!--</script>-->
-
-<!--<ul class="items">-->
-<!--    {#each paginatedItems as item}-->
-<!--        <li class="item">-->
-<!--            {item}-->
-<!--        </li>-->
-<!--    {/each}-->
-<!--</ul>-->
-
-<!--<LightPaginationNav-->
-<!--        totalItems="{items.length}"-->
-<!--        pageSize="{pageSize}"-->
-<!--        currentPage="{currentPage}"-->
-<!--        limit="{1}"-->
-<!--        showStepOptions="{true}"-->
-<!--        on:setPage="{(e) => currentPage = e.detail.page}"-->
-<!--/>-->
-
 <script>
     import Card from "../../../components/Card.svelte";
     import {store} from '../../../store.js'
@@ -36,7 +10,7 @@
 
         var raw = JSON.stringify({
             "courseSectionId": $store.test.id,
-            "test": test,
+            "test": test.test,
             "courseId": $store.cardLecture.id
         });
 
@@ -47,12 +21,8 @@
             redirect: 'follow'
         };
 
-        console.log("this is test" + test)
-        console.log(requestOptions)
-        debugger
-
-        // await fetch("http://91.135.203.14:8080/ola/rest/v2/services/ola_CourseService/setTest", requestOptions)
-        //         .then(response => response.json())
+        await fetch("http://91.135.203.14:8080/ola/rest/v2/services/ola_CourseService/setTest", requestOptions)
+            .then(response => response.json())
     }
 
 </script>

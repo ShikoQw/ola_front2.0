@@ -6,7 +6,7 @@
 
 <div class="card">
     {#if course.image}
-        <img class="_img" src={course.image + "?access_token=" + localStorage.getItem('access_token')}>
+        <img class="_img" src={course.image + localStorage.getItem('access_token')}>
     {/if}
     <div class="card-body">
         <h4 class="card-title">{course.name}</h4>

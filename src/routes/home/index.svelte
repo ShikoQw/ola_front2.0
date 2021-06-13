@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import localize from "../../cas/localize";
 
     onMount(async () => {
         if(localStorage.getItem('isReload') !== 'false'){
@@ -15,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-9 mx-auto position-relative">
-                <h1 class="mb-5">Welcome to cloud-based online learning platform</h1>
+                <h1 class="mb-5">{localize("Welcome to cloud-based online learning platform")}</h1>
             </div>
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
                 <form>

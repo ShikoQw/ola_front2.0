@@ -11,10 +11,17 @@
         </div>
         <div class="col-md-2"></div>
     </div>
+</div>
+<div class="container">
     <div class="row">
-        <slot></slot>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <slot></slot>
+        </div>
+        <div class="col-md-1"></div>
     </div>
 </div>
+
 
 
 
