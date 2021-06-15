@@ -21,29 +21,3 @@
         <div class="col-md-1"></div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-<!--    <div class="text-center">-->
-<!--        <div class="col-md-1"></div>-->
-<!--        <div class="col-md-8">-->
-<!--            <CoursesNavTabs/>-->
-<!--        </div>-->
-<!--        <div class="col-md-1"></div>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-md-1"></div>-->
-<!--        <div class="col-md-8">-->
-<!--            <slot></slot>-->
-<!--        </div>-->
-<!--        <div class="col-md-1"></div>-->
-<!--    </div>-->
-<!--</div>-->

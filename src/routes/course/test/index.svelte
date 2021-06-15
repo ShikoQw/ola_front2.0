@@ -56,7 +56,7 @@
                                     {#each question.answers as answer, j}
                                         <div class="card-text">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="exampleRadios" bind:checked={answer.isSelected}>
+                                                <input class="form-check-input" type="checkbox" style="border-color: var(--bs-indigo);" name="exampleRadios" bind:checked={answer.isSelected}>
                                                 {answer.text}
                                             </div>
                                         </div>
@@ -73,30 +73,6 @@
         </div>
     </div>
 </section>
-
-<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--    <div class="modal-dialog modal-dialog-centered">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <h4 class="" id="exampleModalLabel">Тест сдан</h4>-->
-<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--                {#if true}-->
-<!--                    <div class="d-flex flex-column align-items-center text-center">-->
-<!--                        <h5>Вы ответили на 2 вопроса из 3</h5>-->
-<!--                        <h5>Оценка: 66</h5>-->
-<!--                    </div>-->
-<!--                {:else}-->
-<!--                    <h5>Не сдал</h5>-->
-<!--                {/if}-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--                <button class="btn btn-primary text-white" type="button" data-bs-dismiss="modal" style="background: var(&#45;&#45;bs-indigo); border-color: var(&#45;&#45;bs-indigo);">Ok</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
 
 <style>
     .card{

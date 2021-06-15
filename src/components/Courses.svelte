@@ -20,13 +20,13 @@
             description: "\"Настоящее время описывает действие, которые происходит сейчас или каким-то образом связано с настоящим моментом. В английском языке существует четыре формы настоящего времени — Present Simple, Present Continuous, Present Perfect и Present Perfect Continuous."
         },
         {
-            name: 'Древняя история Рима',
+            name: 'История древнего Рима',
             image: 'https://italy4.me/wp-content/uploads/2017/04/colosseum-in-rome_cr.jpg',
             description: "\"История Рима охватывает 2800 лет существования города, который вырос из маленькой итальянской деревни, появившейся в IX веке до н. э. Сегодня это столица Италии, международный политический и культурный центр, считающийся одним из красивейших городов мира."
         },
         {
-            name: 'Древняя история Греции',
-            image: 'https://lh3.googleusercontent.com/proxy/YmdNIl-rVlBGR9_j5JJ85PR1dOaKahwzmXN_i_cZW-K2XGRghcp3cLSUvcBP5h3IEF4hp4cEnin2bznb7d_NRC3lZj7iXc06dwkswtjERci2x1mAo7t1tZ8vK89chhzMazNl430FVzmvWOazTyunYrV1',
+            name: 'История древней  Греции',
+            image: 'https://lh3.googleusercontent.com/proxy/qe1a0oZglIRNIdsVek5Cl9og_hbFdgtvWmpveFCGRCA8BHfMdJCzCcQwCP_JWk3npDFeGfe8vJUsNTAIjMBqCY0sk7YIZZKMSZ5ggyV0j-vMnVYSFDiwgX65iTFZJuhWduHy0IQoINwIX49AxJzty8lBrRlUMA',
             description: "\"Древняя Греция занимает важное место во всемирно-историческом процессе. Её достижения во многом легли в основу европейской культуры. Многие отрасли современной науки выросли на базе трудов древнегреческих ученых и философов. "
         },
         {
